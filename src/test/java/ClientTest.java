@@ -14,7 +14,7 @@ public class ClientTest {
 
         // Create a Banque object and add accounts
         Banque bank = new Banque(23, "dortmund");
-        Compte compte1 = new Compte(1001, 550.0, client1, bank);
+        Compte compte1 = new Compte(1001, "eur", client1, bank);
 
         bank.addCompte(compte1);
         client1.addCompte(compte1);

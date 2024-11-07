@@ -1,9 +1,12 @@
 package org.example;
 import com.google.gson.Gson;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
-
+@Getter
+@Setter
 public class Banque {
     private int id;
     private String pays;
@@ -19,44 +22,31 @@ public class Banque {
         this.comptes = new ArrayList<>();
     }
 
-    // Getters and setters
-    public int getId() {
-        return id;
-    }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getPays() {
-        return pays;
-    }
-
-    public void setPays(String pays) {
-        this.pays = pays;
-    }
-
-    public List<Compte> getComptes() {
-        return comptes;
-    }
-
-    public void setComptes(List<Compte> comptes) {
-        this.comptes = comptes;
-    }
 
     // Add a compte to the banque
     public void addCompte(Compte compte) {
         comptes.add(compte);
         compte.setBanque(this);  // Establish the back-reference to this Banque
     }
-
-    @Override
-    public String toString() {
-        return "Banque{" +
-                "id=" + id +
-                ", pays='" + pays + '\'' +
-                '}';
+    public Compte RechercheCompte(Client client) {
+        for (Compte compte : comptes) {
+            if (compte.getClient() == client) {
+                return compte;
+            }
+        }
+        return null;
     }
+    public Client RechercheClient(Compte compte) {
+        for (Compte compte1 : comptes) {
+            if (compte1.equals(compte)) {
+                return compte.getClient();
+            }
+        }
+        return null;
+    }
+
+
     public String toJson() {
         Gson gson = new Gson();
         return gson.toJson(this);

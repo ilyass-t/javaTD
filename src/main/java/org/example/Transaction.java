@@ -1,9 +1,12 @@
 package org.example;
 import com.google.gson.Gson;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.HashSet;
 import java.util.Set;
-
+@Getter
+@Setter
 public class Transaction {
     private final int reference;
     private final double amount;
@@ -27,21 +30,7 @@ public class Transaction {
         determineType();
     }
 
-    public int getReference() {
-        return reference;
-    }
 
-    public double getAmount() {
-        return amount;
-    }
-
-    public Set<Compte> getComptes() {
-        return comptes;
-    }
-
-    public TransactionType getTransactionType() {
-        return transactionType;
-    }
 
 
 
@@ -90,15 +79,7 @@ public class Transaction {
         }
     }
 
-    @Override
-    public String toString() {
-        return "Transaction{" +
-                "reference=" + reference +
-                ", amount=" + amount +
-                ", type='" + transactionType + '\'' +
-                ", comptes=" + comptes +
-                '}';
-    }
+
     // Convert Transaction to JSON
     public String toJson() {
         Gson gson = new Gson();

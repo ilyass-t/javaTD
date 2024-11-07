@@ -15,8 +15,8 @@ public class Main {
 
         // Create a Banque object and add accounts
         Banque bank = new Banque(23, "dortmund");
-        Compte compte1 = new Compte(1001, 550.0, client1, bank);
-        Compte compte2 = new Compte(1002, 550.0, client2, bank);
+        Compte compte1 = new Compte(1001, "eur", client1, bank);
+        Compte compte2 = new Compte(1002, "eur", client2, bank);
 
         bank.addCompte(compte1);
         bank.addCompte(compte2);
@@ -29,6 +29,7 @@ public class Main {
         transaction.addCompte(compte2);
         compte1.addTransaction(transaction);
         compte2.addTransaction(transaction);
+
 
         // JSON display for each object
 
@@ -53,6 +54,11 @@ public class Main {
         // Convert Transaction to JSON and display
         System.out.println("\nTransaction JSON:");
         System.out.println(transaction.toJson());
+        if(bank.RechercheClient(compte1)==null){
+            System.out.println("\nClient 1 JSON not found");
+        }
+        else System.out.println("le client est: " + bank.RechercheClient(compte1));
+
     }
 }
 

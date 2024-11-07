@@ -3,10 +3,13 @@ package org.example;
 
 
 import com.google.gson.Gson;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
-
+@Getter
+@Setter
 public class Client {
     private int numClient;
     private String name;
@@ -36,62 +39,7 @@ public class Client {
         this.comptes = new ArrayList<>();
     }
 
-    // Getters and Setters
-    public int getNumClient() {
-        return numClient;
-    }
 
-    public String getName() {
-        return name;
-    }
-
-    public String getPrenom() {
-        return prenom;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public List<Compte> getComptes() {
-        return comptes;
-    }
-
-    public void setNumClient(int numClient) {
-        this.numClient = numClient;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setPrenom(String prenom) {
-        this.prenom = prenom;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public void setComptes(List<Compte> comptes) {
-        this.comptes = comptes;
-    }
 
     // Add a compte to the client
     public void addCompte(Compte compte) {

@@ -13,8 +13,8 @@ public class TransactionTest {
 
         // Create a Banque object and add accounts
         Banque bank = new Banque(23, "dortmund");
-        Compte compte1 = new Compte(1001, 550.0, client1, bank);
-        Compte compte2 = new Compte(1002, 550.0, client2, bank);
+        Compte compte1 = new Compte(1001, "eur", client1, bank);
+        Compte compte2 = new Compte(1002, "eur", client2, bank);
 
         bank.addCompte(compte1);
         bank.addCompte(compte2);
